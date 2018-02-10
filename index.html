@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<!-- Latest compiled and minified CSS --> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> <!-- Optional theme --> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> <!-- Latest compiled and minified JavaScript --> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<head>
+    <meta charset="utf-8">
+<style>
+    body, html {
+      height: 100%;
+  }
+  .bg {
+      /* The image used */
+      background-image: url('https://i.kinja-img.com/gawker-media/image/upload/s--o1O7lnuM--/c_scale,fl_progressive,q_80,w_800/196g1k0z2zqfxjpg.jpg');
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  .headers {
+      color : white;
+     /*text-shadow: 3px 2px grey;*/
+    }
+  #user-weight {
+      color : blue;
+    }
+  .btn {
+      background-color : red;
+      color : white;
+      margin-top: 25px;
+    }
+  form {
+      margin-top: 50px;
+     }
+  #output {
+      color : red;
+      font-weight : bold;
+    }
+
+</style>
+  <title>Astro Weight Calculator</title>
+
+  </head>
+  <body>
+     <!-- Write your markup here  -->
+<div class="bg">
+
+  <div class = 'container'>
+       <div class = 'page-header'>
+         <h1 class = 'headers'>Astro Weight Calculator</h1>
+       </div>
+
+    <!--  radio btn to eliminate pluto as an option -->
+    <div>
+        <h4 class = 'headers'>How do you feel about Pluto?</h4><br>
+            <input type = 'radio' id = 'pluto-in' name = 'pluto-btn' onclick = 'if(this.checked){plutoForever()}'checked>
+                <label for = 'pluto-in' class = 'headers'> Pluto's my dog! Of course its a planet! </label><br>
+            <input type = 'radio' id = 'pluto-out' name = 'pluto-btn' onclick = 'plutoGone()'/>
+                <label for = 'pluto-out' class = 'headers'> I hate Pluto, get it out of my face! </label>
+
+    </div>
+
+    <br><br>      <!--  break for spacing -->
+
+   <!-- weight input, planetary choices and return -->
+      <div class = 'row'>
+        <div class = 'col-xs-5'>  <!-- 'col-xs-5' formats the input/select side by side w/ labels above, 'xs' is unimportant, 5 is the key  -->
+          <div class = 'form-group'>
+            <label class = 'headers'>Your Weight in Earth Pounds</label>
+              <input id = 'user-weight' class = 'form-control' type = 'text' placeholder = 'Terrestrial Weight in lbs'/>
+          </div>
+        </div>
+        <div class = 'col-xs-5'>
+            <div class = 'form-group'>
+              <label class = 'headers' >Select a planet</label>
+                <select id = 'planets' class = 'form-control'>
+                 <option value = '' disabled selected>Choose a planet</option>
+                </select>
+            </div>
+        </div>
+        <div ><button id = 'calculate-button' class = 'btn' type = 'button' onclick = 'handleClickEvent()'>Calculate</button>
+        </div>
+    </div>
+
+    <div class = 'well' id = 'output'>
+         <p id = 'output' ></p>
+    </div>
+
+
+
+    <!-- <div> inputs for new planet & multipliers -->
+  <div class = 'page-header'>
+         <h2 class = 'headers'>Did You Discover a New Planet?!?!</h2>
+   </div>
+
+   <div class = 'row'>
+        <div class = 'col-xs-5'>
+          <div class = 'form-group'>
+            <label class = 'headers'>Enter the new planet's name</label>
+               <input id = 'newPlanet' class = 'form-control' type = 'text' placeholder = 'Name of New Planet' />
+        </div>
+        </div>
+      <div class = 'row'>
+        <div class = 'col-xs-5'>
+          <div class = 'form-group'>
+            <label class = 'headers'>Enter the new planets multiplier</label>
+               <input id = 'newMultiplier' class = 'form-control' type = 'text' placeholder = 'Planetary Gravitational Weight Multiplier' />
+          </div>
+        </div>
+
+    <div>
+      <button class = 'btn' id = 'planetPlus' type = 'button' onclick = 'newPlanetAdd(), clearFields()'>ADD NEW PLANET</button>
+    </div>
+
+
+  </div>
+  </div>
+  </div>
+
+ <!--  </div> -->
+
+      <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
